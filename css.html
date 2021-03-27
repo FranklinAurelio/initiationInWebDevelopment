@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">	
+	<title>Anatomy of a css rule</title>
+	<style>
+		p{
+			color: blue;
+			font-size: 20px;
+			width: 200px;
+		}
+		h1{
+			color: green;
+			font-size: 36px;
+			text-align: center;
+		}
+		.red{
+			color: red;
+			font-size: 28px;
+			text-align: left;
+		}
+		#none{
+			color: blue;
+			font-size: 20px;
+			width: 200px;
+		}
+	</style>
+</head>
+<body>
+<h1>Anatomy of a CSS rule</h1>
+<h2 class="red">Subheading</h2>
+<p>CSS works by associating rules with HTML elements. These rules govern how the content of specified elements should be displayed.</p>
+<div id = "none">
+	Example of CSS call id
+</div>
+<h2 class="red">Subhead</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est maxime aperiam blanditiis reprehenderit voluptatem quia quas nesciunt amet atque temporibus quod harum sequi voluptate consequatur tenetur perferendis, cum ad! Eos.</p>
+
+</body>
+</html>
+
+<!--##########-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Simple Selectors</title>
+<style>
+
+/* all h2 elements */
+h2 {
+  color: red;
+  text-align: center;
+}
+
+
+/* all with class="highlight" */
+.highlight {
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  background-color: green;
+  opacity: .6;
+}
+
+/* element with id="mainPoint" */
+#mainPoint {
+  font-size: 24px;
+  font-weight: bold;
+  background-color: red;
+  opacity: .7;
+}
+
+/* all p AND h1 elements */
+p, h1 {
+  color: blue;
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Simple Selectors (h1)</h1>
+<h2>Subheading 1 (h2)</h2>
+<p class="highlight">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus amet alias est? Nobis cum quasi at soluta odit, maiores quaerat dolores expedita ex nemo ea repellendus dolorem sed maxime quos?</p>
+<p class="highlight">Paragraph with attribute class="highlight". Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+<h2>Subheading 2 (h2)</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi nemo ipsum dolores vel modi magnam veniam alias at nam. Voluptatem officiis dolor dolorem aspernatur dolorum modi ipsa, nobis animi aut!</p>
+<div>This is the main point of the entire article. So, attribute 
+<span id="mainPoint">id="mainPoint".</span> </div>
+
+</body>
+</html>
+
+<!-- Combining Selectors -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Element with Class Selector
+</title>
+<style>
+
+/* all with class="highlight" */
+.highlight {
+  background-color: green;
+}
+
+/* all p elements with class="highlight" */
+p.highlight {  
+  font-style: italic;
+}
+
+/* all elements with class 'highlight' as well as with class 'mainpoint'. */
+.highlight.mainpoint {
+  color: red;
+  background-color: black;
+}
+
+</style>
+</head>
+<body>
+
+<h1 class="highlight">Element with Class Selector</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus amet alias est? Nobis cum quasi at soluta odit, maiores quaerat dolores expedita ex nemo ea repellendus dolorem sed maxime quos?</p>
+<p class="highlight">This is P with CLASS="highlight"</p>
+<div class="mainpoint highlight">This is the main point of the entire article.
+</div>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Descendant Selector</title>
+<style>
+
+/* all li elements that are inside a section element. */
+section li {
+  color: green;
+}
+
+</style>
+</head>
+<body>
+<h1>Descendant Selector</h1>
+<section>
+  Table of contents:
+  <ul>
+    <li>Article 1</li>
+    <li>Article 2</li>
+    <li>Article 3</li>
+  </ul>
+</section>
+<article>
+  Shopping List:
+  <ul>
+    <li>Cookies</li>
+    <li>Cake</li>
+    <li>Pie</li>
+  </ul>
+</article>
+</body>
+</html>
+
+<!-- Pseudo class Selector -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Pseudo Class Selectors</title>
+<style>
+/* Styles go here. */
+
+header li{
+	list-style: none;
+}
+a:link, a:visited{
+	text-decoration: none;
+	background-color: green;
+	border: 1px solid blue;
+	color: black;
+	display: block;
+	width: 200px;
+	text-align: center;
+	margin-bottom: 1px;
+}
+
+a:hover, a:active{
+	background-color: red;
+	color: purple;
+
+}
+
+/*aqui eu escolho qual elemento da minha lista dejeso modificar exclusivamente pelo seu indice */
+header li:nth-child(3){
+	font-size: 24px;
+}
+section div:nth-child(odd){
+	background-color: grey;
+}
+section div:nth-child(4):hover{
+	background-color: green;
+	cursor: pointer;
+}
+</style>
+</head>
+<body>
+<h1>Pseudo Class Selectors</h1>
+
+<header>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="http://goo.gl/V0Wl6s" target="_blank">AngularJS Course</a></li>
+    <li><a href="http://www.facebook.com/CourseraWebDev" target="_blank">Facebook Fan Page</a></li>
+  </ul>
+</header>
+
+<section>
+  <div>DIV 1</div>
+  <div>DIV 2</div>
+  <div>DIV 3</div>
+  <div>DIV 4</div>
+  <div>DIV 5</div>
+  <div>DIV 6</div>
+  <div>DIV 7</div>
+  <div>DIV 8</div>
+  <div>DIV 9</div>
+  <div>DIV 10</div>
+  <div>DIV 11</div>
+  <div>DIV 12</div>
+  <div>DIV 13</div>
+  <div>DIV 14</div>
+  <div>DIV 15</div>
+  <div>DIV 16</div>
+  <div>DIV 17</div>
+  <div>DIV 18</div>
+  <div>DIV 19</div>
+  <div>DIV 20</div>
+</section>
+
+</body>
+</html>
+
+<!-- Style placement -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Style Placement</title>
+<!-- importando um elemento de outra pagina
+nesse caso um exemplo de paginas de estilo -->
+<link rel="stylesheet" href="style.css"><!-- vulgo instancia -->
+<style>
+
+h2 {
+  color: maroon;
+}
+
+</style>
+</head>
+<body>
+<h1>Style Placement</h1>
+<h2>Subheading 1</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex et similique cupiditate dignissimos delectus nulla dolore, eos dolorum quidem excepturi, facere non repellat accusamus, atque? Id voluptate eos et accusantium.</p>
+<h2>Subheading 2</h2>
+<p style="text-align: center;">I am centered!</p>
+
+</body>
+</html>
+
+<!-- Styling text -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Styling Text</title>
+<style>
+.style {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0000ff;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+}
+body{
+  font-size: 120%;
+}
+</style>
+</head>
+<body>
+<p>You can get commonly used font combinations from <a href="http://www.w3schools.com/cssref/css_websafe_fonts.asp">http://www.w3schools.com/cssref/css_websafe_fonts.asp</a>. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam quod necessitatibus a ullam dolorum amet reprehenderit sit laudantium reiciendis aperiam. </p>
+<p class="style">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam fugiat repudiandae fugit porro commodi.</p>
+<!-- "em" é a largura da letra -->
+<div style="font-size: 2em;" >EM</div>
+</body>
+</html>
+
+<!-- The box model -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>The Box Model</title>
+<style>
+
+*{
+  box-sizing: border-box;
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: gray;
+}
+
+#box {
+  background-color: blue;
+  padding: 10px 10px 10px 10px;
+  border: 3px solid black;
+  margin: 40px;
+  width: 300px;
+  overflow: auto;
+}
+#content {
+  background-color: #90EE90; /*green*/
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Box Model</h1>
+
+<div id="box">
+  <div id="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </div>
+</div>
+
+
+</body>
+</html>
+
+<!-- bacground property -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Background</title>
+<style>
+
+#bg {
+  width: 500px;
+  height: 500px;
+  background-color: blue;
+  background-image: url("image.format");
+  background-repeat: no-repeat;
+  /*define a posicao da imagem*/
+  background-position: top center;
+  /* 
+  as mesmas propriedades podem ser escritas de outra forma, sendo "background: url() no-repeat right center";
+  */
+}
+
+</style>
+</head>
+<body>
+<h1>The Background Property</h1>
+
+<div id="bg">Background properties are fun!</div>
+</body>
+</html>
+
+<!-- floating -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Floating Elements</title>
+<style>
+
+div {
+  background-color: #00FFFF;
+}
+p {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+}
+
+#p1 {
+  background-color: #A52A2A;
+  float: right;
+}
+#p2 {
+  background-color: #DEB887;
+}
+#p3 {
+  background-color: #5F9EA0;
+  clear: left;
+}
+#p4 {
+  background-color: #FF7F50;
+}
+
+section{
+	clear: left;
+}
+
+</style>
+</head>
+<body>
+<h1>Floating Elements</h1>
+
+<div>
+  <p id="p1"></p>
+  <p id="p2"></p>
+  <p id="p3"></p>
+  <p id="p4"></p>
+  <section>This is regular content continuing after the the paragraph boxes.</section>
+</div>
+
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Two Column Design</title>
+<style>
+
+*{
+	box-sizing: border-box;
+}
+div {
+  background-color: #00FFFF;
+}
+p {
+  width: 50%;
+  /*border: 1px solid black;*/
+  float: left;
+  padding: 10px;
+}
+
+#p1 {
+  background-color: #A52A2A;
+}
+#p2 {
+  background-color: #DEB887;
+}
+
+section {
+  clear: left;
+}
+
+
+</style>
+</head>
+<body>
+<h1>Two Column Design</h1>
+
+<div>
+  <p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia distinctio aliquid cupiditate perferendis fuga, sit quasi alias vero sunt non, ratione earum dolores nihil! Consequuntur pariatur totam incidunt soluta expedita.</p>
+  <p id="p2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta beatae voluptatibus veniam placeat iure unde assumenda porro neque voluptate esse sit magnam facilis labore odit, provident a ea! Nulla, minima.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius nemo vitae, cupiditate odio magnam reprehenderit esse eum reiciendis repellendus incidunt sequi! Autem, laudantium, accusamus. Doloribus tempora alias minima laborum, provident!</p>
+  <section>This is regular content continuing after the the paragraph boxes.</section>
+</div>
+
+
+</body>
+</html>
+
+<!-- relative elements -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Positioning Elements</title>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  margin-bottom: 15px;
+}
+
+div#container {
+  background-color: #00FFFF;
+  position: relative;
+  top: 60px;
+
+}
+p {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+#p1 {
+  background-color: #A52A2A;
+  position: relative;
+  top: 65px;
+  left: 65px;
+
+
+}
+#p2 {
+  background-color: #DEB887;
+}
+#p3 {
+  background-color: #5F9EA0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#p4 {
+  background-color: #FF7F50;
+}
+
+</style>
+</head>
+<body>
+<h1>Positioning Elements</h1>
+
+<div id="container">
+  <p id="p1"></p>
+  <p id="p2"></p>
+  <p id="p3"></p>
+  <p id="p4"></p>
+</div>
+
+</body>
+</html>
+
+<!-- media queries -->
+
+<!-- and, ",(or)" -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Media Queries</title>
+<style>
+
+/********** Base styles **********/
+h1 {
+  margin-bottom: 15px;
+}
+
+p {
+  border: 1px solid black;
+  margin-bottom: 15px;
+}
+#p1 {
+  background-color: #A52A2A;
+  width: 300px;
+  height: 300px;
+}
+#p2 {
+  background-color: #DEB887;
+  width: 50px;
+  height: 50px;
+}
+
+/********** Large devices only **********/
+@media(min-width: 1200px){
+	#p1{
+		width: 80%;
+	}
+
+	#p2{
+		width: 150px;
+		height: 150px;
+	}
+}
+
+
+/********** Medium devices only **********/
+@media(min-width: 992px) and (max-width:1099px ){
+	#p1{
+		width: 50%
+	}
+	#p2{
+		width: 100px;
+		height:100px;
+	}
+}
+
+</style>
+</head>
+<body>
+<h1>Media Queries</h1>
+
+<p id="p1"></p>
+<p id="p2"></p>
+
+</body>
+</html>
+
+<!-- responsive desing -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width, initial-scale=1">
+<title>Responsive Layout</title>
+<style>
+
+/********** Base styles **********/
+* {
+  box-sizing: border-box;
+}
+h1 {
+  margin-bottom: 15px;
+}
+
+p {
+  border: 1px solid black;
+  background-color: #A52A2A;
+  width: 90%;
+  height: 150px;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: Helvetica;
+  color: white;
+}
+
+/* Simple Responsive Framework. */
+.row {
+  width: 100%;
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+  .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+    float: left;
+    border: 1px solid green;
+  }
+  .col-lg-1 {
+    width: 8.33%;
+  }
+  .col-lg-2 {
+    width: 16.66%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33%;
+  }
+  .col-lg-5 {
+    width: 41.66%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.33%;
+  }
+  .col-lg-8 {
+    width: 66.66%;
+  }
+  .col-lg-9 {
+    width: 74.99%;
+  }
+  .col-lg-10 {
+    width: 83.33%;
+  }
+  .col-lg-11 {
+    width: 91.66%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+}
+
+/********** Medium devices only **********/
+@media (min-width: 950px) and (max-width: 1199px) {
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    float: left;
+    border: 1px solid green;
+  }
+  .col-md-1 {
+    width: 8.33%;
+  }
+  .col-md-2 {
+    width: 16.66%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-4 {
+    width: 33.33%;
+  }
+  .col-md-5 {
+    width: 41.66%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-7 {
+    width: 58.33%;
+  }
+  .col-md-8 {
+    width: 66.66%;
+  }
+  .col-md-9 {
+    width: 74.99%;
+  }
+  .col-md-10 {
+    width: 83.33%;
+  }
+  .col-md-11 {
+    width: 91.66%;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+}
+
+</style>
+</head>
+<body>
+<h1>Responsive Layout</h1>
+
+<div class="row">
+  <div class="col-lg-3 col-md-6"><p>Item 1</p></div>
+  <div class="col-lg-3 col-md-6"><p>Item 2 Wow this is cool</p></div>
+  <div class="col-lg-3 col-md-6"><p>Item 3</p></div>
+  <div class="col-lg-3 col-md-6"><p>Item 4</p></div>
+  <div class="col-lg-3 col-md-6"><p>Item 5 This is cool</p></div>
+  <div class="col-lg-3 col-md-6"><p>Item 6</p></div>
+  <div class="col-lg-3 col-md-6"><p>Item 7</p></div>
+  <div class="col-lg-3 col-md-6"><p>Item 8</p></div>
+</div>
+
+</body>
+</html>
+
+<!-- Twitter bootstrap -->
+
+<!-- 
+ ha paginas de arquivos por tras que necessitam ser chamadas para a criacao desse doc
+ sao as paginas default do bootstrap baixadas no proprio site
+ -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <title>Bootstrap Starter Page</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+<body>
+
+  <h1>Hello Bootstrap!</h1>
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
+
+<!---->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Starter Page</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+<body>
+    
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4 col-sm-6">Col 1</div>
+      <div class="col-md-4 col-sm-6">Col 2</div>
+      <div class="col-md-4 col-sm-6" col-sm-6>Col 3</div>
+    </div>
+     <div class="row">
+      <div class="col-md-4 col-sm-6">Col 1</div>
+      <div class="col-md-4 col-sm-6">Col 2</div>
+      <div class="col-md-4 col-sm-6" col-sm-6>Col 3</div>
+    </div>
+  </div>
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
+
+
