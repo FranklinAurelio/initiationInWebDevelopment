@@ -35,9 +35,6 @@ var showLoading = function (selector) {
   html += "<img src='images/ajax-loader.gif'></div>";
   insertHtml(selector, html);
 };
-
-// Return substitute of '{{propName}}'
-// with propValue in given 'string'
 var insertProperty = function (string, propName, propValue) {
   var propToReplace = "{{" + propName + "}}";
   string = string
@@ -45,14 +42,11 @@ var insertProperty = function (string, propName, propValue) {
   return string;
 };
 
-// Remove the class 'active' from home and switch to Menu button
 var switchMenuToActive = function () {
-  // Remove 'active' from home button
   var classes = document.querySelector("#navHomeButton").className;
   classes = classes.replace(new RegExp("active", "g"), "");
   document.querySelector("#navHomeButton").className = classes;
 
-  // Add 'active' to menu button if not already there
   classes = document.querySelector("#navMenuButton").className;
   if (classes.indexOf("active") === -1) {
     classes += " active";
@@ -60,7 +54,6 @@ var switchMenuToActive = function () {
   }
 };
 
-// On page load (before images or CSS)
 document.addEventListener("DOMContentLoaded", function (event) {
 
 
@@ -71,26 +64,15 @@ $ajaxUtils.sendGetRequest(
   true);
 });
 
-
-
 function buildAndShowHomeHTML (categories) {
 
-  
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtml) {
 
-
-     
       var chosenCategoryShortName = chooseRandomCategory(categories).short_name;
-      console.log(chosenCategoryShortName);
-
-
-     
       var homeHtmlToInsertIntoMainPage = buildHomeHtml(homeHtml, chosenCategoryShortName);
-
       insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
-
     },
     false); 
 }
